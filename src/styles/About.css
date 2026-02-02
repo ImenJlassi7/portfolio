@@ -1,0 +1,297 @@
+/* About Section Styles - Professional Premium Mode */
+.about {
+  padding: 8rem 2rem;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decoration */
+.about::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.05) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 5rem;
+  color: var(--text-primary);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+/* Main Content Layout */
+.about-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  /* Text gets slightly more space */
+  gap: 5rem;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  text-align: left;
+  /* Better reading experience than justify for web */
+  font-weight: 300;
+}
+
+.about-text p:first-of-type {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Image Styling */
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.profile-img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 24px;
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.3),
+    -20px -20px 60px rgba(255, 255, 255, 0.05);
+  /* Soft 3D effect */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  /* framing the image */
+  border: 2px solid var(--accent-primary);
+  border-radius: 30px;
+  z-index: 1;
+  opacity: 0.3;
+  transform: rotate(0deg);
+  transition: transform 0.4s ease;
+}
+
+/* Hover effects removed as requested */
+
+/* Highlights - Cards Section */
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+  /* Ensure equal height */
+}
+
+.highlight-item {
+  background: rgba(255, 255, 255, 0.03);
+  /* Glass effect base */
+  backdrop-filter: blur(10px);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.highlight-item:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(14, 165, 233, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-icon {
+  font-size: 2.5rem;
+  margin: 0 auto 1.5rem auto;
+  background: rgba(14, 165, 233, 0.1);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.highlight-item h4 {
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Experience List Styling */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-height: 300px;
+  /* Limit height */
+  overflow-y: auto;
+  /* Allow scroll if needed */
+  padding-right: 5px;
+}
+
+/* Custom Scrollbar for exp list */
+.experience-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.experience-list::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
+.experience-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.exp-entry {
+  position: relative;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(14, 165, 233, 0.3);
+}
+
+.exp-date {
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  display: block;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+
+.exp-role {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.exp-company {
+  font-size: 0.9rem;
+  color: var(--accent-secondary);
+  font-weight: 500;
+  margin: 0.2rem 0;
+}
+
+.exp-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Education List */
+.education-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.education-list li {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.education-list li strong {
+  color: var(--accent-primary);
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: rgba(14, 165, 233, 0.15);
+  color: var(--accent-primary);
+  padding: 2px 8px;
+  border-radius: 12px;
+  width: fit-content;
+  margin-top: 2px;
+}
+
+.highlight-item p:not(.exp-role):not(.exp-company):not(.exp-desc) {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.focus-subtitle {
+  margin-top: 0.5rem !important;
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.9rem !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .about-text p {
+    text-align: center;
+  }
+
+  .about-highlights {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .highlight-item {
+    align-items: flex-start;
+    /* Keep text aligned left even on mobile for cards */
+    text-align: left;
+  }
+
+  .education-list li {
+    align-items: flex-start;
+  }
+}

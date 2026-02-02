@@ -1,0 +1,133 @@
+/* Skills Section Styles - 3D Cloud */
+.skills {
+  padding: 8rem 0;
+  /* Making the background 'clearer' (lighter) using secondary bg or gradient */
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Background decoration */
+.skills::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  /* Slightly larger */
+  height: 900px;
+  /* Slightly more visible/clearer gradient */
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.skills-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+/* 3D Cloud Wrapper */
+.skills-3d-cloud-wrapper {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  /* Adjust height based on sphere radius */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  /* Key for 3D depth perception */
+  overflow: visible;
+}
+
+.skills-3d-cloud {
+  position: relative;
+  width: 0;
+  height: 0;
+  /* The center point from which items are positioned */
+  transform-style: preserve-3d;
+}
+
+.skill-3d-item {
+  position: absolute;
+  /* Center the item on its coordinate */
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  /* Half width */
+  margin-top: -40px;
+  /* Half height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Smooth transitions for manual rotation updates */
+  /* Remove transition for purely frame-based animation or keep minimal for smoothness */
+  /* transition: transform 0.1s linear, opacity 0.1s linear; */
+
+  backface-visibility: hidden;
+}
+
+.skill-3d-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  pointer-events: none;
+  /* Let clicks pass through if needed */
+}
+
+/* Hover effect on individual items (optional, might conflict with 3D transform loop) */
+.skill-3d-item:hover .skill-3d-img {
+  filter: drop-shadow(0 8px 16px rgba(14, 165, 233, 0.6));
+  transform: scale(1.2);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skills-3d-cloud-wrapper {
+    height: 500px;
+  }
+
+  .skill-3d-item {
+    width: 60px;
+    height: 60px;
+    margin-left: -30px;
+    margin-top: -30px;
+  }
+
+  /* We might need to reduce sphere radius logic in JS for mobile, 
+     or just let it scale via CSS zoom/transform if needed, 
+     but currently JS controls radius. Ideally rewrite JS to use responsive radius. */
+}

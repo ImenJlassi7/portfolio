@@ -29,8 +29,6 @@ const Skills = () => {
 
   // Interactive rotation target (mouse)
   const targetRotation = useRef({ x: 0, y: 0 });
-  const isDragging = useRef(false);
-  const lastMouse = useRef({ x: 0, y: 0 });
 
   // Sphere configuration
   const [radius, setRadius] = useState(300); // Radius of the sphere in px
@@ -55,6 +53,7 @@ const Skills = () => {
   }, []);
 
   // Animation Loop
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const animate = (time) => {
     if (!startTimeRef.current) startTimeRef.current = time;
 
@@ -64,7 +63,6 @@ const Skills = () => {
 
     setRotation(prev => {
       // Smoothly interpolate towards target rotation if interacting, otherwise auto-rotate
-      // For this version, we'll combine auto-rotation with continuous accumulation
       return {
         x: prev.x + autoX + targetRotation.current.x * 0.05,
         y: prev.y + autoY + targetRotation.current.y * 0.05
@@ -81,7 +79,7 @@ const Skills = () => {
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
-  }, []);
+  }, [animate]);
 
   // Mouse Interaction handlers
   const handleMouseMove = (e) => {

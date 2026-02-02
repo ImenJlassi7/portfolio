@@ -166,16 +166,13 @@ const Projects = () => {
                 </div>
                 <p>{project.description}</p>
 
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleViewProject(project);
-                  }}
+                <button
+                  type="button"
+                  onClick={() => handleViewProject(project)}
                   className="project-link"
                 >
                   View Project <span className="arrow">→</span>
-                </a>
+                </button>
               </div>
             </div>
           ))}
